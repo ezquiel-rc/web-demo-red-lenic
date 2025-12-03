@@ -1,0 +1,131 @@
+:root {
+    /* Logo Colors - Extracted/Approximated from "Red Lenic" Blue Logo */
+    --logo-primary: #1e40af; /* Deep Blue */
+    --logo-accent: #3b82f6;  /* Bright Blue */
+    --logo-dark: #0f172a;    /* Dark Slate */
+}
+
+/* Base Font */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Mobile Grid Requirement: 3 items per row */
+/* We use a very tight grid for mobile to fit 3 items */
+.mobile-tight-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+/* On larger screens, we expand */
+@media (min-width: 768px) {
+    .mobile-tight-grid {
+        grid-template-columns: repeat(3, 1fr); /* Keep 3 or go to 4 */
+        gap: 1.5rem;
+    }
+}
+@media (min-width: 1024px) {
+    .mobile-tight-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* Card Styling for tight mobile grid */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: white;
+    border-radius: 0.75rem; /* rounded-xl */
+    overflow: hidden;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+/* Adjust text sizes for the small mobile cards */
+.product-card h3 {
+    font-size: 0.75rem; /* Small text for mobile */
+    line-height: 1.1;
+    margin-bottom: 0.25rem;
+}
+.product-card .price {
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+.product-card button {
+    padding: 0.25rem;
+    font-size: 0.75rem;
+}
+
+/* Restore sizes for larger screens */
+@media (min-width: 768px) {
+    .product-card h3 {
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+    }
+    .product-card .price {
+        font-size: 1.25rem;
+    }
+    .product-card button {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Menu & Modal States */
+.menu-open #mobile-menu {
+    opacity: 1;
+    pointer-events: auto;
+}
+.menu-open #mobile-menu > div {
+    transform: translateX(0);
+}
+
+.cart-open #cart-drawer {
+    opacity: 1;
+    pointer-events: auto;
+}
+.cart-open #cart-drawer > div {
+    transform: translateX(0);
+}
+
+.modal-open #product-modal {
+    opacity: 1;
+    pointer-events: auto;
+}
+.modal-open #modal-content {
+    transform: scale(1);
+}
