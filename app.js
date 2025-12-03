@@ -13,7 +13,7 @@
 
 const CONFIG = {
     currency: 'ARS',
-    whatsappNumber: '5491112345678', // Replace with real number
+    whatsappNumber: '5491136574678', // Replace with real number
     placeholderImg: 'https://placehold.co/300x300/e2e8f0/1e40af?text=Producto'
 };
 
